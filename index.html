@@ -114,6 +114,43 @@
         <p id="totalTime">Estimated time until seated: <strong>35 minutes</strong></p>
     </section>
 
+    <section id="contact-section">
+        <h2>Choose Your Contact Method for Live Updates</h2>
+        <p>How would you like to receive real-time updates about your queue position?</p>
+    
+        <!-- Contact method buttons -->
+        <div id="contact-options">
+            <button id="emailBtn">Email</button>
+            <button id="smsBtn">SMS</button>
+            <button id="whatsappBtn">WhatsApp</button>
+        </div>
+    
+        <!-- Email input form -->
+        <div id="emailForm" class="contactForm" style="display: none;">
+            <label for="emailInput">Enter your email:</label>
+            <input type="email" id="emailInput" placeholder="example@example.com">
+            <button id="submitEmail">Submit</button>
+        </div>
+    
+        <!-- SMS input form -->
+        <div id="smsForm" class="contactForm" style="display: none;">
+            <label for="smsInput">Enter your phone number:</label>
+            <input type="tel" id="smsInput" placeholder="123-456-7890">
+            <button id="submitSMS">Submit</button>
+        </div>
+    
+        <!-- WhatsApp input form -->
+        <div id="whatsappForm" class="contactForm" style="display: none;">
+            <label for="whatsappInput">Enter your WhatsApp number:</label>
+            <input type="tel" id="whatsappInput" placeholder="123-456-7890">
+            <button id="submitWhatsApp">Submit</button>
+        </div>
+    
+        <!-- Confirmation message -->
+        <div id="confirmationMessage" style="display: none;">
+            <p>Thank you! You will now receive live updates via your selected contact method.</p>
+        </div>
+    </section>
 
 
 
