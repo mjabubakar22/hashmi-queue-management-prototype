@@ -180,3 +180,8 @@ function sendLiveUpdates(contactInfo, method) {
     console.log(`Sending live updates to ${contactInfo} via ${method}`);
 }
 
+window.addEventListener('beforeunload', function (e) {
+    var confirmationMessage = 'You will continue receiving live updates via your selected contact method.';
+    e.returnValue = confirmationMessage;  // For most browsers
+    return confirmationMessage;  // For Chrome
+});
