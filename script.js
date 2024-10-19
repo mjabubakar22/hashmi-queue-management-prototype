@@ -84,3 +84,99 @@ function calculateDriveTime() {
     // This will be integrated with Google Maps API to calculate drive time
     return "Drive time feature coming soon!";
 }
+
+// Elements
+const emailBtn = document.getElementById('emailBtn');
+const smsBtn = document.getElementById('smsBtn');
+const whatsappBtn = document.getElementById('whatsappBtn');
+const emailForm = document.getElementById('emailForm');
+const smsForm = document.getElementById('smsForm');
+const whatsappForm = document.getElementById('whatsappForm');
+const confirmationMessage = document.getElementById('confirmationMessage');
+
+// Handle Email button click
+emailBtn.addEventListener('click', function() {
+    hideAllForms();
+    emailForm.style.display = 'block';
+});
+
+// Handle SMS button click
+smsBtn.addEventListener('click', function() {
+    hideAllForms();
+    smsForm.style.display = 'block';
+});
+
+// Handle WhatsApp button click
+whatsappBtn.addEventListener('click', function() {
+    hideAllForms();
+    whatsappForm.style.display = 'block';
+});
+
+// Function to hide all forms
+function hideAllForms() {
+    emailForm.style.display = 'none';
+    smsForm.style.display = 'none';
+    whatsappForm.style.display = 'none';
+    confirmationMessage.style.display = 'none';
+}
+
+// Handle Email submission
+document.getElementById('submitEmail').addEventListener('click', function() {
+    const email = document.getElementById('emailInput').value;
+    if (validateEmail(email)) {
+        showConfirmation();
+        // Call function to send email updates (email service integration required)
+        sendLiveUpdates(email, 'email');
+    } else {
+        alert("Please enter a valid email address.");
+    }
+});
+
+// Handle SMS submission
+document.getElementById('submitSMS').addEventListener('click', function() {
+    const phone = document.getElementById('smsInput').value;
+    if (validatePhoneNumber(phone)) {
+        showConfirmation();
+        // Call function to send SMS updates (SMS service integration required)
+        sendLiveUpdates(phone, 'sms');
+    } else {
+        alert("Please enter a valid phone number.");
+    }
+});
+
+// Handle WhatsApp submission
+document.getElementById('submitWhatsApp').addEventListener('click', function() {
+    const whatsappNumber = document.getElementById('whatsappInput').value;
+    if (validatePhoneNumber(whatsappNumber)) {
+        showConfirmation();
+        // Call function to send WhatsApp updates (WhatsApp API integration required)
+        sendLiveUpdates(whatsappNumber, 'whatsapp');
+    } else {
+        alert("Please enter a valid WhatsApp number.");
+    }
+});
+
+// Show confirmation message
+function showConfirmation() {
+    hideAllForms();
+    confirmationMessage.style.display = 'block';
+}
+
+// Email validation function
+function validateEmail(email) {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
+// Phone number validation function
+function validatePhoneNumber(phone) {
+    const re = /^[0-9]{10,}$/;
+    return re.test(phone);
+}
+
+// Function to send live updates (placeholder for integration with email/SMS/WhatsApp services)
+function sendLiveUpdates(contactInfo, method) {
+    // Placeholder for future integration with backend services for sending updates
+    console.log(`Sending live updates to ${contactInfo} via ${method}`);
+}
+
